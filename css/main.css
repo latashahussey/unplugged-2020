@@ -98,6 +98,12 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
@@ -182,20 +188,31 @@ textarea {
 }
 
 /* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
+   Media Queries for Responsive Design.
    ========================================================================== */
 
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
-}
+/* Mobile */
 
-@media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-  (min-resolution: 1.25dppx),
-  (min-resolution: 120dpi) {
-  /* Style adjustments for high resolution devices */
+@media screen and (max-width: 600px) {
+  header .content-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  nav ul {
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+  }
+
+  nav ul li {
+    list-style-type: none;
+    padding: 10px;
+  }
+
+  nav ul li a {
+    text-decoration: none;
+  }
 }
 
 /* ==========================================================================
@@ -214,16 +231,20 @@ textarea {
     box-shadow: none !important;
     text-shadow: none !important;
   }
+
   a,
   a:visited {
     text-decoration: underline;
   }
+
   a[href]:after {
     content: " (" attr(href) ")";
   }
+
   abbr[title]:after {
     content: " (" attr(title) ")";
   }
+
   /*
      * Don't show links that are fragment identifiers,
      * or use the `javascript:` pseudo protocol
@@ -232,14 +253,17 @@ textarea {
   a[href^="javascript:"]:after {
     content: "";
   }
+
   pre {
     white-space: pre-wrap !important;
   }
+
   pre,
   blockquote {
     border: 1px solid #999;
     page-break-inside: avoid;
   }
+
   /*
      * Printing Tables:
      * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
@@ -247,19 +271,21 @@ textarea {
   thead {
     display: table-header-group;
   }
+
   tr,
   img {
     page-break-inside: avoid;
   }
+
   p,
   h2,
   h3 {
     orphans: 3;
     widows: 3;
   }
+
   h2,
   h3 {
     page-break-after: avoid;
   }
 }
-
